@@ -1,15 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import person.Boss;
+import person.Hero;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Boss boss = new Boss();
+        boss.setHealth(500);
+        boss.setDamage(80);
+        boss.setDefenseType("Physical Shield");
+
+        System.out.println("person.Boss Information:");
+        System.out.println("Health: " + boss.getHealth());
+        System.out.println("Damage: " + boss.getDamage());
+        System.out.println("Defense Type: " + boss.getDefenseType());
+
+        Hero[] heroes = createHeroes();
+        System.out.println("\nHeroes Information:");
+        for (Hero hero : heroes) {
+            System.out.println("Health: " + hero.getHealth());
+            System.out.println("Damage: " + hero.getDamage());
+            System.out.println("Super Power: " + hero.getSuperPower());
+            System.out.println();
         }
+    }
+
+
+    public static Hero[] createHeroes() {
+
+        Hero hero1 = new Hero(100, 50, "Invisibility");
+        Hero hero2 = new Hero(120, 40, "Fireball");
+        Hero hero3 = new Hero(90, 60);
+        Hero[] heroes = {hero1, hero2, hero3};
+        return heroes;
     }
 }
